@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {useSelector} from 'react-redux';
 import {Alert, Button, TextInput} from 'flowbite-react';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
@@ -17,6 +17,7 @@ export default function DashProfile() {
   const [imageFileUploadError, setImageFileUploadError] = useState(null);
   const [imageFileUploading, setImageFileUploading] = useState(false);
   const [updateUserSuccess, setUpdateUserSuccess] = useState(null);
+  const [updateUserError, setUpdateUserError] = useState(null)
   const [formData, setFormData] = useState({});
   const dispatch = useDispatch();
   const handleImageChange = (e) => {
@@ -77,8 +78,11 @@ export default function DashProfile() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value});
   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setUpdateUserError(null);
+    setUpdateUserSuccess(null);
     if (Object.keys(formData).length === 0) {
       setUpdateUserError('No changes made');
       return;
@@ -99,6 +103,7 @@ export default function DashProfile() {
       const data = await res.json();
       if (!res.ok) {
         dispatch(updateFailure(data.message));
+        setUpdateUserError(data.message);
         
       } else {
         dispatch(updateSuccess(data));
@@ -162,6 +167,13 @@ export default function DashProfile() {
           {updateUserSuccess}
         </Alert>
       )}
+      {
+        updateUserError && (
+          <Alert color='failure' className='mt-5'>
+            {updateUserError}
+          </Alert>
+        )
+      }
     </div>
   )
 }
