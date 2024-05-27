@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import PrivateRoute from './components/PrivateRoute';
 import userReducer from './redux/user/userSlice';
 import { useSelector } from 'react-redux'
+import CreatePost from './pages/CreatePost'
 
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
         <Route path='/about' element={<About />} />
         
           <Route path='/dashboard' element={currentUser ? <Dashboard /> : <Navigate to="/signin"/>} />
+          <Route path='/create-post' element={currentUser && currentUser.isAdmin ? <CreatePost /> : <Navigate to="/signin"/>} />
         
         <Route path='/signin' element={<Signin />} />
         <Route path='/signup' element={<Signup />} />
