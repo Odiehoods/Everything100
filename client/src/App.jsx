@@ -7,10 +7,12 @@ import Signin from './pages/Signin'
 import Signup from './pages/Signup'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import PrivateRoute from './components/PrivateRoute';
-import userReducer from './redux/user/userSlice';
 import { useSelector } from 'react-redux'
 import CreatePost from './pages/CreatePost'
+import UpdatePost from './pages/UpdatePost'
+import PostPage from './pages/PostPage'
+import ScrollToTop from './components/ScrollToTop'
+
 
 
 export default function App() {
@@ -20,13 +22,16 @@ export default function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTop/>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
+        <Route path='/post/:postSlug' element={<PostPage/>} />
         
           <Route path='/dashboard' element={currentUser ? <Dashboard /> : <Navigate to="/signin"/>} />
           <Route path='/create-post' element={currentUser && currentUser.isAdmin ? <CreatePost /> : <Navigate to="/signin"/>} />
+          <Route path='/update-post/:postId' element={currentUser && currentUser.isAdmin ? <UpdatePost /> : <Navigate to="/signin"/>} />
         
         <Route path='/signin' element={<Signin />} />
         <Route path='/signup' element={<Signup />} />
