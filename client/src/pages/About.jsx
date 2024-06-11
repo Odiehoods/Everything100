@@ -1,4 +1,5 @@
 import React from 'react'
+import CallToAction from '../components/CallToAction';
 
 export default function About() {
   return (
@@ -8,6 +9,9 @@ export default function About() {
       that is why we dedicate ourselves to bringing you the best of 
       entertainment 24/7.
     </p>
+    <div className='p-3 bg-amber-100 dark:bg-slate-700'>
+        <CallToAction />
+      </div>
     </>
   )
 }
