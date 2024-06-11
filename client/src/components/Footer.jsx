@@ -10,7 +10,7 @@ export default function Footercom() {
           <div className='grid w-full justify-between sm:flex md:grid-cols-1'>
             <div className='mt-5'>
             <Link to="/" className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
-            <span>Everything100</span>
+            <span>Olofofo.net</span>
             </Link>
             </div>
             <div className='grid grid-cols-2 gap-8 mt-4 sm:grid-cols-3 sm:gap-6'>
