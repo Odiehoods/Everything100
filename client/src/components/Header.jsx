@@ -53,21 +53,8 @@ export default function Header() {
   return (
     <Navbar className='border-b-2'>
         <Link to="/" className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
-            <span>Everything100</span>
+            <span>Olofofo</span>
         </Link>
-        <form onSubmit={handleSubmit}>
-            <TextInput 
-                type='text'
-                placeholder='Search...'
-                rightIcon={AiOutlineSearch}
-                className='hidden lg:inline'
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
-        </form>
-        <Button className='w-12 h-10 lg:hidden' color='gray' pill>
-            <AiOutlineSearch />
-        </Button>
         <div className='flex gap-2 md:order-2'>
             <Button className='w-12 h-10 hidden sm:inline' color='gray' pill onClick={() =>dispatch(toggleTheme())}>
                 {theme === 'light' ? <FaSun /> : <FaMoon />}
@@ -120,6 +107,19 @@ export default function Header() {
                     About
                 </Link>
             </Navbar.Link>
+            <form onSubmit={handleSubmit}>
+            <TextInput 
+                type='text'
+                placeholder='Search...'
+                rightIcon={AiOutlineSearch}
+                className='lg:inline'
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+        </form>
+        {/* <Button className='w-12 h-10 lg:hidden' color='gray' pill>
+            <AiOutlineSearch />
+        </Button> */}
         </NavbarCollapse>
     </Navbar>
   )
