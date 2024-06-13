@@ -22,14 +22,14 @@ export default function Footercom() {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  JS projects
+                  other projects
                 </Footer.Link>
                 <Footer.Link
                   href='/About'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  Everything100
+                  Olofofo
                 </Footer.Link>
               </Footer.LinkGroup>  
               </div>
@@ -70,7 +70,7 @@ export default function Footercom() {
           </div>
           <Footer.Divider />
           <div className='w-full sm:flex sm:items-center sm:justify-between'>
-            <Footer.Copyright href='#' by="Everything100" year={new Date().getFullYear()}/>
+            <Footer.Copyright href='#' by="Odiehoods" year={new Date().getFullYear()}/>
             <div className='flex gap-6 sm:mt-0 mt-4 sm:justify-center'>
               <Footer.Icon href='#' icon={BsFacebook}/>
               <Footer.Icon href='#' icon={BsInstagram}/>
